@@ -3,14 +3,10 @@
 require_relative "toka1300_palindrome/version"
 
 # Edits the string class to allow for palindrome detection
-class String
+module Toka1300Palindrome
   def palindrome?
     processed_content == processed_content.reverse
   end
-
-  # def letters
-  #   scan(/[a-zA-Z]/).join
-  # end
 
   # ---Testing---
   def test_non_palindrome
@@ -26,4 +22,8 @@ class String
   def processed_content
     scan(/[a-zA-Z]/).join.downcase
   end
+end
+
+class String
+  include Toka1300Palindrome
 end

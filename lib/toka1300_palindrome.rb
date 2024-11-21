@@ -2,7 +2,28 @@
 
 require_relative "toka1300_palindrome/version"
 
-module Toka1300Palindrome
-  class Error < StandardError; end
-  # Your code goes here...
+# Edits the string class to allow for palindrome detection
+class String
+  def palindrome?
+    processed_content == processed_content.reverse
+  end
+
+  # def letters
+  #   scan(/[a-zA-Z]/).join
+  # end
+
+  # ---Testing---
+  def test_non_palindrome
+    assert !"apple".palindrome?
+  end
+
+  def test_literal_palindrome
+    assert "racecar".palindrome?
+  end
+
+  private
+
+  def processed_content
+    scan(/[a-zA-Z]/).join.downcase
+  end
 end
